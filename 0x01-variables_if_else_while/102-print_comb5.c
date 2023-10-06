@@ -21,12 +21,8 @@ putchar(',');
 putchar(' ');
 putchar((q / 10) + '0');
 putchar((q % 10) + '0');
-if (p == 98 && q == 99)
-continue;
-putchar(',');
-putchar(' ');
+putchar(p != 98 || q != 99 ? ',' : '\n');
 }
 }
-putchar('\n');
 return (0);
 }
