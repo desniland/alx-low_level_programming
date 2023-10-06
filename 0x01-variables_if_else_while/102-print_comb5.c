@@ -9,20 +9,24 @@
 */
 int main(void)
 {
-int p, q;
+int x, y;
 
-for (p = 0; p <= 98; p++)
+for (x = 0; x <= 99; x++)
 {
-for (q = p + 1; q <= 99; q++)
+for (y = x + 1; y <= 99; y++)
 {
-putchar((p / 10) + '0');
-putchar((p % 10) + '0');
+putchar((x / 10) + '0');
+putchar((x % 10) + '0');
+putchar(' ');
+putchar((y / 10) + '0');
+putchar((y % 10) + '0');
+if (x != 99 || y != 99)
+{
 putchar(',');
 putchar(' ');
-putchar((q / 10) + '0');
-putchar((q % 10) + '0');
-putchar(p != 98 || q != 99 ? ',' : '\n');
 }
 }
+}
+putchar('\n');
 return (0);
 }
