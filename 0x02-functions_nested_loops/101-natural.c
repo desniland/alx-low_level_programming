@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - Lists all the natural numbers below 1024 
+ * main - Lists all the natural numbers below 1024
  * exclude numbers that are multiples of 3 or 5.
  *
  * Return: Always 0.
@@ -17,3 +17,4 @@ sum += x;
 printf("%d\n", sum);
 return (0);
 }
+
