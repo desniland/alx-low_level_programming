@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * times_table - prints out the times table with increased spacing
+ * times_table - prints out the times table with the specified formatting
  *
  * Return: No return value (void)
 */
@@ -16,11 +16,11 @@ for (v = 0; v < 10; v++)
 result = h * v;
 if (v == 0)
 {
-printf("%3d", result);
+printf("%2d", result);
 }
 else
 {
-printf("%4d", result);
+printf(", %2d", result);
 }
 }
 printf("\n");
