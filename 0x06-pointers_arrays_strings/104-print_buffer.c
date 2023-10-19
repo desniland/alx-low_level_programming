@@ -29,6 +29,12 @@ else
 putchar('.');
 }
 }
+/*
+*print_buffer - prints a buffer in a formatted manner.
+*@b: the buffer to print
+*@size: the size of the buffer
+*Return: Void
+*/
 void print_buffer(char *b, int size)
 {
 int i;
