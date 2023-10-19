@@ -30,10 +30,10 @@ putchar('.');
 }
 }
 /*
-*print_buffer - prints a buffer in a formatted manner.
+*print_buffer - prints a buffer in a formatted manner
 *@b: the buffer to print
 *@size: the size of the buffer
-*Return: Void
+*Return: void
 */
 void print_buffer(char *b, int size)
 {
