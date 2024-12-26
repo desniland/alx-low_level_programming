@@ -1,23 +1,24 @@
-### C - Makefiles
+# C - Makefiles
 
-Learning Objectives
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+## Learning Objectives
 
-##General
+- At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+
+# General
 - What are make, Makefiles
 - When, why and how to use Makefiles
 - What are rules and how to set and use them
 - What are explicit and implicit rules
 - What are the most common / useful rules
 - What are variables and how to set and use them
-##Copyright - Plagiarism
+# Copyright - Plagiarism
 - You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.
 - You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.
 - You are not allowed to publish any content of this project.
 - Any form of plagiarism is strictly forbidden and will result in removal from the program.
 
-##Requirements
-##General
+# Requirements
+# General
 - Allowed editors: vi, vim, emacs
 - OS: Ubuntu 20.04 LTS
 - Version of gcc: 9.3.0
@@ -26,10 +27,11 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 - A README.md file, at the root of the folder of the project, is mandatory
 
  - In the following tasks, we are going to use these files. We want to compile these only. https://github.com/alx-tools/0x1B.c
-###Tasks
+
+# Tasks
 
 0. make -f 0-Makefile
-mandatory
+
 Create your first Makefile.
 
 Requirements:
@@ -38,9 +40,11 @@ name of the executable: school
 rules: all
 The all rule builds your executable
 variables: none
-julien@ubuntu:~/0x1C. Makefiles$ make -f 0-Makefile 
+
+$ make -f 0-Makefile 
 gcc main.c school.c -o school
-julien@ubuntu:~/0x1C. Makefiles$ ./school 
+
+$ ./school 
 j#0000000000000000000000000000000000000
 j#000000000000000000@Q**g00000000000000
 j#0000000000000000*]++]4000000000000000
@@ -66,17 +70,20 @@ j#0000000000000@@+wgdA]+J00000000000000
 j#0000000000000k?qwgdC=]4#0000000000000
 j#00000000000000w]+]++qw#00000000000000
 "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-julien@ubuntu:~/0x1C. Makefiles$ 
+
+$ 
 Repo:
 
 GitHub repository: alx-low_level_programming
+
 Directory: 0x1C-makefiles
+
 File: 0-Makefile
 
 
 
 1. make -f 1-Makefile
-mandatory
+   
 Requirements:
 
 name of the executable: school
@@ -85,19 +92,24 @@ The all rule builds your executable
 variables: CC, SRC
 CC: the compiler to be used
 SRC: the .c files
-julien@ubuntu:~/0x1C. Makefiles$ make -f 1-Makefile
+
+$ make -f 1-Makefile
 gcc main.c school.c -o school
-julien@ubuntu:~/0x1C. Makefiles$ make -f 1-Makefile
+
+$ make -f 1-Makefile
 gcc main.c school.c -o school
-julien@ubuntu:~/0x1C. Makefiles$
+
+$
 Repo:
 
 GitHub repository: alx-low_level_programming
+
 Directory: 0x1C-makefiles
+
 File: 1-Makefile
 
 2. make -f 2-Makefile
-mandatory
+   
 Create your first useful Makefile.
 
 Requirements:
@@ -112,25 +124,30 @@ OBJ: the .o files
 NAME: the name of the executable
 The all rule should recompile only the updated source files
 You are not allowed to have a list of all the .o files
-julien@ubuntu:~/0x1C. Makefiles$ make -f 2-Makefile
+
+$ make -f 2-Makefile
 gcc    -c -o main.o main.c
 gcc    -c -o school.o school.c
 gcc main.o school.o -o school
-julien@ubuntu:~/0x1C. Makefiles$ make -f 2-Makefile
+
+$ make -f 2-Makefile
 gcc main.o school.o -o school
-julien@ubuntu:~/0x1C. Makefiles$ echo "/* School */" >> main.c
-julien@ubuntu:~/0x1C. Makefiles$ make -f 2-Makefile
+
+$ echo "/* School */" >> main.c
+$ make -f 2-Makefile
 gcc    -c -o main.o main.c
 gcc main.o school.o -o school
-julien@ubuntu:~/0x1C. Makefiles$ 
+$ 
 Repo:
 
 GitHub repository: alx-low_level_programming
+
 Directory: 0x1C-makefiles
+
 File: 2-Makefile
 
 3. make -f 3-Makefile
-mandatory
+   
 Requirements:
 
 name of the executable: school
@@ -149,7 +166,8 @@ RM: the program to delete files
 The all rule should recompile only the updated source files
 The clean, oclean, fclean, re rules should never fail
 You are not allowed to have a list of all the .o files
-julien@ubuntu:~//0x1C. Makefiles$ ls -1
+
+$ ls -1
 0-Makefile
 1-Makefile
 2-Makefile
@@ -158,13 +176,16 @@ school.c
 main.c
 main.c~
 m.h
-julien@ubuntu:~/0x1C. Makefiles$ make -f 3-Makefile
+ 
+ $ make -f 3-Makefile
 gcc    -c -o main.o main.c
 gcc    -c -o school.o school.c
 gcc main.o school.o -o school
-julien@ubuntu:~/0x1C. Makefiles$ make all -f 3-Makefile
+ 
+ $ make all -f 3-Makefile
 gcc main.o school.o -o school
-julien@ubuntu:~/0x1C. Makefiles$ ls -1
+ 
+ $ ls -1
 0-Makefile
 1-Makefile
 2-Makefile
@@ -176,34 +197,43 @@ main.c
 main.c~
 main.o
 m.h
-julien@ubuntu:~/0x1C. Makefiles$ make clean -f 3-Makefile 
+ 
+ $ make clean -f 3-Makefile 
 rm -f *~ school
-julien@ubuntu:~/0x1C. Makefiles$ make oclean -f 3-Makefile 
+ 
+ $ make oclean -f 3-Makefile 
 rm -f main.o school.o
-julien@ubuntu:~/0x1C. Makefiles$ make fclean -f 3-Makefile 
+
+$ make fclean -f 3-Makefile 
 rm -f *~ school
 rm -f main.o school.o
-julien@ubuntu:~/0x1C. Makefiles$ make all -f 3-Makefile
+
+$ make all -f 3-Makefile
 gcc    -c -o main.o main.c
 gcc    -c -o school.o school.c
 gcc main.o school.o -o school
-julien@ubuntu:~/0x1C. Makefiles$ make all -f 3-Makefile
+
+$ make all -f 3-Makefile
 gcc main.o school.o -o school
-julien@ubuntu:~/0x1C. Makefiles$ make re -f 3-Makefile
+
+$ make re -f 3-Makefile
 rm -f main.o school.o
 gcc    -c -o main.o main.c
 gcc    -c -o school.o school.c
 gcc main.o school.o -o school
-julien@ubuntu:~/0x1C. Makefiles$ 
+
+$ 
 Repo:
 
 GitHub repository: alx-low_level_programming
+
 Directory: 0x1C-makefiles
+
 File: 3-Makefile
 
 4. A complete Makefile
-mandatory
-Requirements:
+   
+   Requirements:
 
 name of the executable: school
 rules: all, clean, fclean, oclean, re
@@ -224,21 +254,23 @@ The clean, oclean, fclean, re rules should never fail
 
 You are not allowed to have a list of all the .o files
 
-julien@ubuntu:~/0x1C. Makefiles$ make all -f 4-Makefile
+$ make all -f 4-Makefile
 gcc -Wall -Werror -Wextra -pedantic   -c -o main.o main.c
 gcc -Wall -Werror -Wextra -pedantic   -c -o school.o school.c
 gcc main.o school.o -o school
-julien@ubuntu:~/0x1C. Makefiles$ 
+$ 
 
 
 Repo:
 
 GitHub repository: alx-low_level_programming
+
 Directory: 0x1C-makefiles
+
 File: 4-Makefile
 
 5. Island Perimeter
-mandatory
+   
 Technical interview preparation:
 
 You are not allowed to google anything
@@ -253,12 +285,13 @@ Grid cells are connected horizontally/vertically (not diagonally).
 Grid is rectangular, width and height don’t exceed 100
 Grid is completely surrounded by water, and there is one island (or nothing).
 The island doesn’t have “lakes” (water inside that isn’t connected to the water around the island).
+
 Requirements:
 
 First line contains #!/usr/bin/python3
 You are not allowed to import any module
 Module and function must be documented
-guillaume@ubuntu:~/0x1C$ cat 5-main.py
+$ cat 5-main.py
 #!/usr/bin/python3
 """
 5-main
@@ -275,14 +308,16 @@ if __name__ == "__main__":
     ]
     print(island_perimeter(grid))
 
-guillaume@ubuntu:~/0x1C$ 
-guillaume@ubuntu:~/0x1C$ ./5-main.py
+$ 
+$ ./5-main.py
 12
-guillaume@ubuntu:~/0x1C$ 
+$ 
 Repo:
 
 GitHub repository: alx-low_level_programming
+
 Directory: 0x1C-makefiles
+
 File: 5-island_perimeter.py
 
 
