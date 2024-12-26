@@ -1,11 +1,11 @@
 # C - Hash tables
 This project is on Hash Table data structure in C
 
-#Learning Objectives
+# Learning Objectives
 
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+- At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
-General
+# General
 What is a hash function
 What makes a good hash function
 What is a hash table, how do they work and how to use them
@@ -13,8 +13,8 @@ What is a collision and what are the main ways of dealing with collisions in the
 What are the advantages and drawbacks of using hash tables
 What are the most common use cases of hash tables
 
-#Requirements
-#General
+# Requirements
+# General
 Allowed editors: vi, vim, emacs
 All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
 All your files should end with a new line
@@ -27,8 +27,8 @@ The prototypes of all your functions should be included in your header file call
 Don’t forget to push your header file
 All your header files should be include guarded
 
-#More Info
-#Data Structures
+# More Info
+# Data Structures
 
 Please use these data structures for this project:
 
@@ -61,16 +61,16 @@ typedef struct hash_table_s
      hash_node_t **array;
 } hash_table_t;
 
-#Python Dictionaries
+# Python Dictionaries
 Python dictionaries are implemented using hash tables. When you will be done with this project, you will be able to better understand the power and simplicity of Python dictionaries. So much is actually happening when you type d = {'a': 1, 'b': 2}, but everything looks so simple for the user. Python doesn’t use the exact same implementation than the one you will work on today though. If you are curious on how it works under the hood, here is a good blog post about how dictionaries are implemented in Python 2.7 (not mandatory).
 
 Note that all dictionaries are not implemented using hash tables and there is a difference between a dictionary and a hash table. Read more here (not mandatory).
 
-#MANDATORY TASKS
+# MANDATORY TASKS
 
-Tasks
+# Tasks
 0. >>> ht = {}
-mandatory
+
 Write a function that creates a hash table.
 
 Prototype: hash_table_t *hash_table_create(unsigned long int size);
@@ -96,10 +96,10 @@ int main(void)
     printf("%p\n", (void *)ht);
     return (EXIT_SUCCESS);
 }
-julien@ubuntu:~/0x1A. Hash tables$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-hash_table_create.c -o a
-julien@ubuntu:~/0x1A. Hash tables$ ./a 
+$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-hash_table_create.c -o a
+$ ./a 
 0x238a010
-julien@ubuntu:~/0x1A. Hash tables$ valgrind ./a
+$ valgrind ./a
 ==7602== Memcheck, a memory error detector
 ==7602== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
 ==7602== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
@@ -121,15 +121,17 @@ julien@ubuntu:~/0x1A. Hash tables$ valgrind ./a
 ==7602== 
 ==7602== For counts of detected and suppressed errors, rerun with: -v
 ==7602== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-julien@ubuntu:~/0x1A. Hash tables$
+$
 Repo:
 
 GitHub repository: alx-low_level_programming
+
 Directory: 0x1A-hash_tables
+
 File: 0-hash_table_create.c
   
 1. djb2
-mandatory
+   
 Write a hash function implementing the djb2 algorithm.
 
 Prototype: unsigned long int hash_djb2(const unsigned char *str);
@@ -147,8 +149,8 @@ unsigned long int hash_djb2(const unsigned char *str)
     }
     return (hash);
 }
-julien@ubuntu:~/0x1A. Hash tables$ 
-julien@ubuntu:~/0x1A. Hash tables$ cat 1-main.c 
+$ 
+$ cat 1-main.c 
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -171,21 +173,23 @@ int main(void)
     printf("%lu\n", hash_djb2((unsigned char *)s));
     return (EXIT_SUCCESS);
 }
-julien@ubuntu:~/0x1A. Hash tables$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 1-main.c 1-djb2.c -o b
-julien@ubuntu:~/0x1A. Hash tables$ ./b 
+$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 1-main.c 1-djb2.c -o b
+$ ./b 
 6953392314605
 3749890792216096085
 5861846
-julien@ubuntu:~/0x1A. Hash tables$ 
+$ 
 Repo:
 
 GitHub repository: alx-low_level_programming
+
 Directory: 0x1A-hash_tables
+
 File: 1-djb2.c
   
 2. key -> index
-mandatory
-Write a function that gives you the index of a key.
+
+- Write a function that gives you the index of a key.
 
 Prototype: unsigned long int key_index(const unsigned char *key, unsigned long int size);
 where key is the key
@@ -193,7 +197,8 @@ and size is the size of the array of the hash table
 This function should use the hash_djb2 function that you wrote earlier
 Returns the index at which the key/value pair should be stored in the array of the hash table
 You will have to use this hash function for all the next tasks
-julien@ubuntu:~/0x1A. Hash tables$ cat 2-main.c 
+
+$ cat 2-main.c 
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -221,23 +226,25 @@ int main(void)
     printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));  
     return (EXIT_SUCCESS);
 }
-julien@ubuntu:~/0x1A. Hash tables$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 2-main.c 1-djb2.c 2-key_index.c -o c
-julien@ubuntu:~/0x1A. Hash tables$ ./c 
+$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 2-main.c 1-djb2.c 2-key_index.c -o c
+$ ./c 
 6953392314605
 237
 3749890792216096085
 341
 5861846
 470
-julien@ubuntu:~/0x1A. Hash tables$ 
+$ 
 Repo:
 
 GitHub repository: alx-low_level_programming
+
 Directory: 0x1A-hash_tables
+
 File: 2-key_index.c
   
 3. >>> ht['betty'] = 'cool'
-mandatory
+
 Write a function that adds an element to the hash table.
 
 Prototype: int hash_table_set(hash_table_t *ht, const char *key, const char *value);
@@ -246,7 +253,8 @@ key is the key. key can not be an empty string
 and value is the value associated with the key. value must be duplicated. value can be an empty string
 Returns: 1 if it succeeded, 0 otherwise
 In case of collision, add the new node at the beginning of the list
-julien@ubuntu:~/0x1A. Hash tables$ cat 3-main.c 
+
+$ cat 3-main.c 
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -265,8 +273,9 @@ int main(void)
     hash_table_set(ht, "betty", "cool");
     return (EXIT_SUCCESS);
 }
-julien@ubuntu:~/0x1A. Hash tables$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 0-hash_table_create.c 1-djb2.c 2-key_index.c 3-hash_table_set.c -o d
-julien@ubuntu:~/0x1A. Hash tables$
+
+$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 0-hash_table_create.c 1-djb2.c 2-key_index.c 3-hash_table_set.c -o d
+$
 If you want to test for collisions, here are some strings that collide using the djb2 algorithm:
 
 hetairas collides with mentioner
@@ -279,18 +288,21 @@ dram collides with vivency
 Repo:
 
 GitHub repository: alx-low_level_programming
+
 Directory: 0x1A-hash_tables
+
 File: 3-hash_table_set.c
   
 4. >>> ht['betty']
-mandatory
+
 Write a function that retrieves a value associated with a key.
 
 Prototype: char *hash_table_get(const hash_table_t *ht, const char *key);
 where ht is the hash table you want to look into
 and key is the key you are looking for
 Returns the value associated with the element, or NULL if key couldn’t be found
-julien@ubuntu:~/0x1A. Hash tables$ cat 4-main.c 
+
+$ cat 4-main.c 
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -334,8 +346,9 @@ int main(void)
     printf("%s:%s\n", "javascript", value);
     return (EXIT_SUCCESS);
 }
-julien@ubuntu:~/0x1A. Hash tables$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 4-main.c 0-hash_table_create.c 1-djb2.c 2-key_index.c 3-hash_table_set.c 4-hash_table_get.c -o e
-julien@ubuntu:~/0x1A. Hash tables$ ./e 
+
+$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 4-main.c 0-hash_table_create.c 1-djb2.c 2-key_index.c 3-hash_table_set.c 4-hash_table_get.c -o e
+$ ./e 
 python:awesome
 Bob:and Kris love asm
 N:queens
@@ -344,15 +357,18 @@ Betty:Cool
 98:Battery Street
 c:isfun
 javascript:(null)
-julien@ubuntu:~/0x1A. Hash tables$ 
+
+$ 
 Repo:
 
 GitHub repository: alx-low_level_programming
+
 Directory: 0x1A-hash_tables
+
 File: 4-hash_table_get.c
   
 5. >>> print(ht)
-mandatory
+
 Write a function that prints a hash table.
 
 Prototype: void hash_table_print(const hash_table_t *ht);
@@ -361,7 +377,8 @@ You should print the key/value in the order that they appear in the array of has
 Order: array, list
 Format: see example
 If ht is NULL, don’t print anything
-julien@ubuntu:~/0x1A. Hash tables$ cat 5-main.c 
+
+$ cat 5-main.c 
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -388,24 +405,30 @@ int main(void)
     hash_table_print(ht);
     return (EXIT_SUCCESS);
 }
-julien@ubuntu:~/0x1A. Hash tables$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 5-main.c 0-hash_table_create.c 1-djb2.c 2-key_index.c 3-hash_table_set.c 4-hash_table_get.c 5-hash_table_print.c -o f
-julien@ubuntu:~/0x1A. Hash tables$ ./f 
+$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 5-main.c 0-hash_table_create.c 1-djb2.c 2-key_index.c 3-hash_table_set.c 4-hash_table_get.c 5-hash_table_print.c -o f
+
+$ ./f 
 {}
 {'Betty': 'Cool', 'python': 'awesome', 'Bob': 'and Kris love asm', '98': 'Battery Street', 'N': 'queens', 'c': 'fun', 'Asterix': 'Obelix'}
-julien@ubuntu:~/0x1A. Hash tables$ 
+$ 
 Repo:
 
+
 GitHub repository: alx-low_level_programming
+
 Directory: 0x1A-hash_tables
+
 File: 5-hash_table_print.c
   
 6. >>> del ht
-mandatory
+
 Write a function that deletes a hash table.
 
 Prototype: void hash_table_delete(hash_table_t *ht);
 where ht is the hash table
-julien@ubuntu:~/0x1A. Hash tables$ cat 6-main.c 
+
+$ cat 6-main.c 
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -446,8 +469,9 @@ int main(void)
     hash_table_delete(ht);
     return (EXIT_SUCCESS);
 }
-julien@ubuntu:~/0x1A. Hash tables$ gcc -Wall -pedantic -Werror -Wextra 6-main.c 0-hash_table_create.c 1-djb2.c 2-key_index.c 3-hash_table_set.c 4-hash_table_get.c 5-hash_table_print.c 6-hash_table_delete.c -o g
-julien@ubuntu:~/0x1A. Hash tables$ valgrind ./g
+$ gcc -Wall -pedantic -Werror -Wextra 6-main.c 0-hash_table_create.c 1-djb2.c 2-key_index.c 3-hash_table_set.c 4-hash_table_get.c 5-hash_table_print.c 6-hash_table_delete.c -o g
+
+$ valgrind ./g
 ==6621== Memcheck, a memory error detector
 ==6621== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
 ==6621== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
@@ -463,15 +487,18 @@ julien@ubuntu:~/0x1A. Hash tables$ valgrind ./g
 ==6621== 
 ==6621== For counts of detected and suppressed errors, rerun with: -v
 ==6621== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-julien@ubuntu:~/0x1A. Hash tables$ 
+
+$ 
 Repo:
 
 GitHub repository: alx-low_level_programming
+
 Directory: 0x1A-hash_tables
+
 File: 6-hash_table_delete.c
   
 7. $ht['Betty'] = 'Cool'
-#advanced task
+   
 In PHP, hash tables are ordered. Wait… WAT? How is this even possible?
 
 
@@ -532,7 +559,9 @@ void shash_table_print_rev(const shash_table_t *ht);
 Should print the hash tables key/value pairs in reverse order using the sorted linked list
 void shash_table_delete(shash_table_t *ht);
 You are allowed to have more than 5 functions in your file
-julien@ubuntu:~/0x1A. Hash tables$ cat 100-main.c 
+
+$ cat 100-main.c 
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -568,8 +597,8 @@ int main(void)
         shash_table_delete(ht);
     return (EXIT_SUCCESS);
 }
-julien@ubuntu:~/0x1A. Hash tables$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 100-main.c 100-sorted_hash_table.c 1-djb2.c 2-key_index.c -o sht  
-julien@ubuntu:~/0x1A. Hash tables$ ./sht 
+$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 100-main.c 100-sorted_hash_table.c 1-djb2.c 2-key_index.c -o sht  
+$ ./sht 
 {'y': '0'}
 {'j': '1', 'y': '0'}
 {'c': '2', 'j': '1', 'y': '0'}
@@ -579,12 +608,13 @@ julien@ubuntu:~/0x1A. Hash tables$ ./sht
 {'a': '6', 'b': '3', 'c': '2', 'j': '1', 'n': '5', 'y': '0', 'z': '4'}
 {'a': '6', 'b': '3', 'c': '2', 'j': '1', 'm': '7', 'n': '5', 'y': '0', 'z': '4'}
 {'z': '4', 'y': '0', 'n': '5', 'm': '7', 'j': '1', 'c': '2', 'b': '3', 'a': '6'}
-julien@ubuntu:~/0x1A. Hash tables$ 
 
-
+$ 
 
 Repo:
 
 GitHub repository: alx-low_level_programming
+
 Directory: 0x1A-hash_tables
+
 File: 100-sorted_hash_table.c
